@@ -36,7 +36,7 @@
 
   $mysql->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-  $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
+  $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `CustomerID`='$userID'");
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
