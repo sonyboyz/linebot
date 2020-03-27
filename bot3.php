@@ -61,3 +61,4 @@
   $results = sendMessage($encodeJson,$lineData);
   echo $results;
   http_response_code(200);
+?>
