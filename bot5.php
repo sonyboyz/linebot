@@ -23,63 +23,47 @@ $jsonFlex = [
       "contents" => [
         [
           "type" => "text",
-          "text" => "Purchase",
+          "text" => "ระบบรายงานวันลา",
+          "margin" => "xs",
           "size" => "lg",
-          "align" => "start",
+          "align" => "center",
+          "gravity" => "bottom",
           "weight" => "bold",
-          "color" => "#009813"
+          "color" => "#170574",
+          "wrap" => true
         ],
         [
           "type" => "text",
-          "text" => "฿ 100.00",
-          "size" => "3xl",
-          "weight" => "bold",
-          "color" => "#000000"
-        ],
-        [
-          "type" => "text",
-          "text" => "Rabbit Line Pay",
+          "text" => "นายวิวัฒน์ คล้ายหล่อ",
           "size" => "lg",
+          "align" => "center",
           "weight" => "bold",
-          "color" => "#000000"
+          "color" => "#DD2104"
         ],
         [
-          "type" => "text",
-          "text" => "2019.02.14 21 =>47 (GMT+0700)",
-          "size" => "xs",
-          "color" => "#B2B2B2"
-        ],
-        [
-          "type" => "text",
-          "text" => "Payment complete.",
-          "margin" => "lg",
-          "size" => "lg",
-          "color" => "#000000"
+          "type" => "separator",
+          "color" => "#3A3030"
         ]
       ]
     ],
     "body" => [
       "type" => "box",
       "layout" => "vertical",
+      "flex" => 2,
       "contents" => [
-        [
-          "type" => "separator",
-          "color" => "#C3C3C3"
-        ],
         [
           "type" => "box",
           "layout" => "baseline",
-          "margin" => "lg",
           "contents" => [
             [
               "type" => "text",
-              "text" => "Merchant",
-              "align" => "start",
-              "color" => "#C3C3C3"
+              "text" => "ลาป่วย",
+              "weight" => "regular",
+              "color" => "#0D00B9"
             ],
             [
               "type" => "text",
-              "text" => "BTS 01",
+              "text" => "คงเหลือ  15  วัน",
               "align" => "end",
               "color" => "#000000"
             ]
@@ -88,24 +72,50 @@ $jsonFlex = [
         [
           "type" => "box",
           "layout" => "baseline",
-          "margin" => "lg",
           "contents" => [
             [
               "type" => "text",
-              "text" => "New balance",
-              "color" => "#C3C3C3"
+              "text" => "ลาพักผ่อน",
+              "color" => "#BB0D0D"
             ],
             [
               "type" => "text",
-              "text" => "฿ 45.57",
+              "text" => "คงเหลือ 12 วัน",
               "align" => "end"
             ]
           ]
         ],
         [
-          "type" => "separator",
-          "margin" => "lg",
-          "color" => "#C3C3C3"
+          "type" => "box",
+          "layout" => "baseline",
+          "contents" => [
+            [
+              "type" => "text",
+              "text" => "ลากิจ",
+              "color" => "#11AA08"
+            ],
+            [
+              "type" => "text",
+              "text" => "คงเหลือ 5 วัน",
+              "align" => "end"
+            ]
+          ]
+        ],
+        [
+          "type" => "box",
+          "layout" => "baseline",
+          "contents" => [
+            [
+              "type" => "text",
+              "text" => "ลาคลอด/อุปสมบท",
+              "color" => "#1F262C"
+            ],
+            [
+              "type" => "text",
+              "text" => "คงเหลือ 20 วัน",
+              "align" => "end"
+            ]
+          ]
         ]
       ]
     ],
@@ -114,16 +124,14 @@ $jsonFlex = [
       "layout" => "horizontal",
       "contents" => [
         [
-          "type" => "text",
-          "text" => "View Details",
-          "size" => "lg",
-          "align" => "start",
-          "color" => "#0084B6",
+          "type" => "button",
           "action" => [
             "type" => "uri",
-            "label" => "View Details",
-            "uri" => "https =>//google.co.th/"
-          ]
+            "label" => "ยื่นใบลา",
+            "uri" => "http://www.rh2.go.th"
+          ],
+          "color" => "#00BB51",
+          "style" => "primary"
         ]
       ]
     ]
