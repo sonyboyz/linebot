@@ -1,6 +1,33 @@
 <?php
-$cid=$_GET['cid'];
+$LINEData = file_get_contents('php://input');
+  $jsonData = json_decode($LINEData,true);
 
+  $replyToken = $jsonData["events"][0]["replyToken"];
+  $userID = $jsonData["events"][0]["source"]["userId"];
+  $text = $jsonData["events"][0]["message"]["text"];
+  $timestamp = $jsonData["events"][0]["timestamp"];
+
+  $servername = "203.157.118.122:3306";
+  $username = "root";
+  $password = "P-Triple1331";
+  $dbname = "line";
+  $mysql = new mysqli($servername, $username, $password, $dbname);
+  mysqli_set_charset($mysql, "utf8");
+
+  if ($mysql->connect_error){
+  $errorcode = $mysql->connect_error;
+  print("MySQL(Connection)> ".$errorcode);
+  }
+
+ $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `CustomerID`='$userID'");
+  $getuserNum = $getUser->num_rows;
+      while($row = $getUser->fetch_assoc()){
+      $Name = $row['Name'];
+      $Surname = $row['Surname'];
+      $CustomerID = $row['CustomerID'];
+      }
+
+        
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'b9294d4c452cc656fcd8e1d80086c11b';
@@ -34,7 +61,7 @@ $jsonFlex = [
         ],
         [
           "type" => "text",
-          "text" => "นายวิวัฒน์ คล้ายหล่อ $cid",
+          "text" => "นายวิวัฒน์ คล้ายหล่อ $CustomerID",
           "size" => "lg",
           "align" => "center",
           "weight" => "bold",
