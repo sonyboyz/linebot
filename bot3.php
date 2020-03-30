@@ -48,8 +48,8 @@
       $CustomerID = $row['CustomerID'];
     }
     $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-    //include "bot5.php?cid=$CustomerID";
-    header( "location: bot5.php?cid=$CustomerID" );
+    include "bot5.php";
+    //header( "location: bot5.php?cid=$CustomerID" );
        
     
   }
