@@ -48,7 +48,7 @@
       $CustomerID = $row['CustomerID'];
     }
     $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-    include "bot5.php";
+    include "bot5.php?cid=$CustomerID";
        
     
   }
