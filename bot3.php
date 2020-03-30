@@ -36,13 +36,13 @@
 
 $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-  $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `idcard`='$userID'");
+  $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `phone`='$text'");
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
 	  $mysql->query("UPDATE `persontb` SET `idcard`='$userID' WHERE `phone`='$text'");
 	    
-    $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ $text !!";
+    $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ !!";
 	
   } else {
     while($row = $getUser->fetch_assoc()){
