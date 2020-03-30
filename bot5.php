@@ -10,7 +10,7 @@ $LINEData = file_get_contents('php://input');
   $servername = "203.157.118.122:3306";
   $username = "root";
   $password = "P-Triple1331";
-  $dbname = "line";
+  $dbname = "profile_rh2";
   $mysql = new mysqli($servername, $username, $password, $dbname);
   mysqli_set_charset($mysql, "utf8");
 
@@ -19,12 +19,12 @@ $LINEData = file_get_contents('php://input');
   print("MySQL(Connection)> ".$errorcode);
   }
 
- $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `CustomerID`='$userID'");
+ $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `idcard`='$userID'");
   $getuserNum = $getUser->num_rows;
       while($row = $getUser->fetch_assoc()){
-      $Name = $row['Name'];
-      $Surname = $row['Surname'];
-      $CustomerID = $row['CustomerID'];
+      $title_name = $row['title_name'];
+      $p_name = $row['p_name'];
+      $idcard = $row['idcard'];
       }
 
         
@@ -61,7 +61,7 @@ $jsonFlex = [
         ],
         [
           "type" => "text",
-          "text" => "$Name $Surname",
+          "text" => "$title_name $p_name",
           "size" => "lg",
           "align" => "center",
           "weight" => "bold",
