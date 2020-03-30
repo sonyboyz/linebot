@@ -40,7 +40,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
-	  $mysql->query("UPDATE `persontb` SET `idcard`='$userID' WHERE `phone`='$text'");
+	  $mysql->query("UPDATE `userLine` SET `phone`='$userID' WHERE `phone`='$text'");
 	    
     $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ !!";
 	
