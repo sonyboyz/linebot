@@ -40,7 +40,7 @@
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
-	  $mysql->query("UPDATE persontb SET idcard='$userID' WHERE p_name='$text'");
+	  $mysql->query("UPDATE persontb SET idcard='$userID' WHERE phone='$text'");
     $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ !!";
 	
   } else {
