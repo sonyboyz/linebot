@@ -13,122 +13,132 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 
 $jsonFlex = [
-    "type" => "flex",
-    "altText" => "Hello Flex Message",
-    "contents" => [
-      "type" => "bubble",
-      "direction" => "ltr",
-      "header" => [
-        "type" => "box",
-        "layout" => "vertical",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "Purchase",
-            "size" => "lg",
-            "align" => "start",
-            "weight" => "bold",
-            "color" => "#009813"
-          ],
-          [
-            "type" => "text",
-            "text" => "฿ 100.00",
-            "size" => "3xl",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "text",
-            "text" => "Rabbit Line Pay",
-            "size" => "lg",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "text",
-            "text" => "2019.02.14 21:47 (GMT+0700)",
-            "size" => "xs",
-            "color" => "#B2B2B2"
-          ],
-          [
-            "type" => "text",
-            "text" => "Payment complete.",
-            "margin" => "lg",
-            "size" => "lg",
-            "color" => "#000000"
-          ]
-        ]
-      ],
-      "body" => [
-        "type" => "box",
-        "layout" => "vertical",
-        "contents" => [
-          [
-            "type" => "separator",
-            "color" => "#C3C3C3"
-          ],
-          [
-            "type" => "box",
-            "layout" => "baseline",
-            "margin" => "lg",
-            "contents" => [
-              [
-                "type" => "text",
-                "text" => "Merchant",
-                "align" => "start",
-                "color" => "#C3C3C3"
-              ],
-              [
-                "type" => "text",
-                "text" => "BTS 01",
-                "align" => "end",
-                "color" => "#000000"
-              ]
-            ]
-          ],
-          [
-            "type" => "box",
-            "layout" => "baseline",
-            "margin" => "lg",
-            "contents" => [
-              [
-                "type" => "text",
-                "text" => "New balance",
-                "color" => "#C3C3C3"
-              ],
-              [
-                "type" => "text",
-                "text" => "฿ 45.57",
-                "align" => "end"
-              ]
-            ]
-          ],
-          [
-            "type" => "separator",
-            "margin" => "lg",
-            "color" => "#C3C3C3"
-          ]
-        ]
-      ],
-      "footer" => [
-        "type" => "box",
-        "layout" => "horizontal",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "View Details",
-            "size" => "lg",
-            "align" => "start",
-            "color" => "#0084B6",
-            "action" => [
-              "type" => "uri",
-              "label" => "View Details",
-              "uri" => "https://google.co.th/"
-            ]
-          ]
-        ]
+    {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "ระบบรายงานวันลา",
+          "margin": "xs",
+          "size": "lg",
+          "align": "center",
+          "gravity": "bottom",
+          "weight": "bold",
+          "color": "#170574",
+          "wrap": true
+        },
+        {
+          "type": "text",
+          "text": "นายวิวัฒน์ คล้ายหล่อ",
+          "size": "lg",
+          "align": "center",
+          "weight": "bold",
+          "color": "#DD2104"
+        },
+        {
+          "type": "separator",
+          "color": "#3A3030"
+        }
       ]
-    ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "flex": 2,
+      "contents": [
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ลาป่วย",
+              "weight": "regular",
+              "color": "#0D00B9"
+            },
+            {
+              "type": "text",
+              "text": "คงเหลือ  15  วัน",
+              "align": "end",
+              "color": "#000000"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ลาพักผ่อน",
+              "color": "#BB0D0D"
+            },
+            {
+              "type": "text",
+              "text": "คงเหลือ 12 วัน",
+              "align": "end"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ลากิจ",
+              "color": "#11AA08"
+            },
+            {
+              "type": "text",
+              "text": "คงเหลือ 5 วัน",
+              "align": "end"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ลาคลอด/อุปสมบท",
+              "color": "#1F262C"
+            },
+            {
+              "type": "text",
+              "text": "คงเหลือ 20 วัน",
+              "align": "end"
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "ยื่นใบลา",
+            "uri": "http://www.rh2.go.th"
+          },
+          "color": "#00BB51",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}
   ];
 
 
