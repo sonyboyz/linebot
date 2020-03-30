@@ -61,7 +61,7 @@ $jsonFlex = [
         ],
         [
           "type" => "text",
-          "text" => "$title_name $p_name",
+          "text" => "$title_name$p_name",
           "size" => "lg",
           "align" => "center",
           "weight" => "bold",
