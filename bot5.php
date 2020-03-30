@@ -1,5 +1,5 @@
 <?php
-
+$cid=$_GET['cid'];
 
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU='; 
@@ -34,7 +34,7 @@ $jsonFlex = [
         ],
         [
           "type" => "text",
-          "text" => "นายวิวัฒน์ คล้ายหล่อ",
+          "text" => "นายวิวัฒน์ คล้ายหล่อ $cid",
           "size" => "lg",
           "align" => "center",
           "weight" => "bold",
