@@ -1,7 +1,5 @@
 <?php
 
-// test flex message
-
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'b9294d4c452cc656fcd8e1d80086c11b';
@@ -12,8 +10,7 @@ $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' 
 $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 
-$jsonFlex = 
-    {
+$jsonFlex = [
   "type": "flex",
   "altText": "รายงานวันลา",
   "contents": {
@@ -138,7 +135,7 @@ $jsonFlex =
       ]
     }
   }
-}
+]
   ;
 
 
