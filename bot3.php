@@ -16,7 +16,7 @@
 
   if ($mysql->connect_error){
   $errorcode = $mysql->connect_error;
-  print("MySQL(Connection)> ".$errorcode);
+  //print("MySQL(Connection)> ".$errorcode);
   }
 
   function sendMessage($replyJson, $sendInfo){
@@ -48,7 +48,8 @@
       $CustomerID = $row['CustomerID'];
     }
     $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-    include "bot5.php?cid=$CustomerID";
+    //include "bot5.php?cid=$CustomerID";
+    header( "location: bot5.php?cid=$CustomerID" );
        
     
   }
