@@ -51,7 +51,7 @@
   }
 
   $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
-  $lineData['AccessToken'] = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
+  $lineData['AccessToken'] = "yxtdzUBPJ+j12VB8Ewf4TrwhYvKfn/OkaUGX4T8NpeJbTxKo9omAuUBawpDBSPtZ5m7ZFP2kYPc5QiEmozzkGsTphCbjegcyA4VmhhjyOYrgrxzWMQwAPK2A7zwUKYmaSZ3N38+90h6Fxdun4cSqrgdB04t89/1O/w1cDnyilFU=";
 
   $replyJson["replyToken"] = $replyToken;
   $replyJson["messages"][0] = $replyText;
