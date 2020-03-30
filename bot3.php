@@ -48,21 +48,8 @@
       $CustomerID = $row['CustomerID'];
     }
     $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-  }
-
-  $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
-  $lineData['AccessToken'] = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
-
-  $replyJson["replyToken"] = $replyToken;
-  $replyJson["messages"][0] = $replyText;
-
-  $encodeJson = json_encode($replyJson);
-
-  $results = sendMessage($encodeJson,$lineData);
-  echo $results;
-  http_response_code(200);
-
-// test flex message
+    
+    // test flex message
 
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU='; 
@@ -236,5 +223,24 @@ function send_reply_message($url, $post_header, $post_body)
 
     return $result;
 }
+    
+    // Test Flex Message
+    
+    
+  }
+
+  $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
+  $lineData['AccessToken'] = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
+
+  $replyJson["replyToken"] = $replyToken;
+  $replyJson["messages"][0] = $replyText;
+
+  $encodeJson = json_encode($replyJson);
+
+  $results = sendMessage($encodeJson,$lineData);
+  echo $results;
+  http_response_code(200);
+
+
 
 ?>
