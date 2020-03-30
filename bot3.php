@@ -42,7 +42,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
   if ($getuserNum == "0"){
 	  $mysql->query("UPDATE `persontb` SET `idcard`='$userID' WHERE `phone`='$text'");
 	    
-    $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ !!";
+    $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ $text !!";
 	
   } else {
     while($row = $getUser->fetch_assoc()){
