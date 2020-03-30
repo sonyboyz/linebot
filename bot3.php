@@ -10,7 +10,7 @@
   $servername = "203.157.118.122:3306";
   $username = "root";
   $password = "P-Triple1331";
-  $dbname = "line";
+  $dbname = "profile_rh2";
   $mysql = new mysqli($servername, $username, $password, $dbname);
   mysqli_set_charset($mysql, "utf8");
 
@@ -34,20 +34,22 @@
     return $result;
   }
 
-  $mysql->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+  $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-  $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `CustomerID`='$userID'");
+  $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `idcard`='$userID'");
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
-    $replyText["text"] = "สวัสดีคับบบบ";
+	  $mysql->query("UPDATE persontb SET idcard='$userID' WHERE p_name='$text'");
+    $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ !!";
+	
   } else {
     while($row = $getUser->fetch_assoc()){
-      $Name = $row['Name'];
-      $Surname = $row['Surname'];
-      $CustomerID = $row['CustomerID'];
+      $title_name = $row['title_name'];
+      $p_name = $row['p_name'];
+      $idcard = $row['idcard'];
     }
-    $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
+    $replyText["text"] = "สวัสดีคุณ $p_name ($idcard)";
     include "bot5.php";
     //header( "location: bot5.php?cid=$CustomerID" );
     //print "<META HTTP-EQUIV=Refresh CONTENT=0 URL=bot5.php?cid=$CustomerID>";
