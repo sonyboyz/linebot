@@ -11,7 +11,7 @@
 //Register
 $checkregis = substr($text,0,8);
 if($checkregis == "register" ){
-	include "bot_push.php"; 
+	include "register.php"; 
    }
 //Register
 
