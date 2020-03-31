@@ -60,7 +60,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
       $p_name = $row['p_name'];
       $idcard = $row['idcard'];
     }
-    $replyText["text"] = "สวัสดีคุณ $p_name ($idcard)";
+    $replyText["text"] = "สวัสดีคุณ $p_name ($position)";
 
 //Show Detail Flex MSG
     //include "bot5.php";
