@@ -32,7 +32,7 @@ $nameRegis = substr($message,8);
 	  
 	  //$mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
 	    $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check no Row')");
- 	
+ 	exit;
   } else {
     while($row = $getUser->fetch_assoc()){
       $title_name = $row['title_name'];
@@ -41,6 +41,7 @@ $nameRegis = substr($message,8);
     }
 	  
 $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check Get Row')");
+	  exit;
 	  //$replyText["text"] = "คุณ $p_name ลงทะเบียนไปแล้วครับ ^ ^";
    
   }
