@@ -19,7 +19,7 @@ $LINEData = file_get_contents('php://input');
   print("MySQL(Connection)> ".$errorcode);
   }
 
- $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `idcard`='$userID'");
+ $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `userID`='$userID'");
   $getuserNum = $getUser->num_rows;
       while($row = $getUser->fetch_assoc()){
       $title_name = $row['title_name'];
