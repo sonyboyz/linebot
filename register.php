@@ -33,12 +33,12 @@ $nameRegis = substr($message,8);
 	  //$mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
 	   	
 	  
-      $arrayPostData['to'] = $id;
+           $arrayPostData['to'] = "U250e4c274a06718a96420fdafdbb9706";
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ลงทะเบียนให้เรียบร้อยแล้วครับ ^ ^";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
-      $arrayPostData['messages'][1]['stickerId'] = "4";
+      $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
   
    function pushMsg($arrayHeader,$arrayPostData){
@@ -54,6 +54,7 @@ $nameRegis = substr($message,8);
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+ 
 	   $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check no Row')");
 	  
 	  exit;
@@ -65,28 +66,6 @@ $nameRegis = substr($message,8);
     }
 	  
 
-	 
-	  $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "คุณ $p_name ลงทะเบียนไปแล้วครับ ^ ^";
-      $arrayPostData['messages'][1]['type'] = "sticker";
-      $arrayPostData['messages'][1]['packageId'] = "1";
-      $arrayPostData['messages'][1]['stickerId'] = "4";
-      pushMsg($arrayHeader,$arrayPostData);
-  
-   function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL,$strUrl);
-      curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $result = curl_exec($ch);
-      curl_close ($ch);
-   }
 	  $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check Get Row')");
 	  
 	  exit;
