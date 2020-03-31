@@ -43,8 +43,7 @@ if($text == "ขวัญ"){
     return $result;
   }
 
-//Log
-$mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+
 
 //Check User
   $getUser = $mysql->query("SELECT * FROM `persontb` WHERE userID = '$userID'");
@@ -63,18 +62,22 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
       $p_name = $row['p_name'];
       $position = $row['position'];
     }
-    //$replyText["text"] = "สวัสดีคุณ $p_name ตอนนี้ผมยังไม่ค่อยรู้อะไรนอกจากวันลา กรุณาอย่างถามเรื่องอื่นนะครับ ผมตอบไม่ได้ T_T";
+	  
+  
 	  $replyText["text"] = "กำลังตรวจสอบวันลาให้คุณ $p_name อยู่นะครับ รอรับข้อความได้เลยครับ ^ ^";
-	  //include "bot_push.php"; 
 
 //Show Detail Flex MSG
-    include "bot5.php";
+    include "bot_push.php";
     
   }
 
 
 
   if ($text == "วันลา"){
+	  
+//Log
+$mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+	  
 //Reply MSG
   $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
   $lineData['AccessToken'] = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
