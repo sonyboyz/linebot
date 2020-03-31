@@ -12,7 +12,7 @@
 if($text == "ขวัญ"){
      include "bot_push.php"; 
    }
-   exit;
+
   
 
 //Test Push MSG
