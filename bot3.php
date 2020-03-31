@@ -8,12 +8,14 @@
   $text = $jsonData["events"][0]["message"]["text"];
   $timestamp = $jsonData["events"][0]["timestamp"];
 
-//Test Push MSG
-if($text == "ทดสอบบอท"){
-     //include "bot_push.php"; 
-	include "bot5.php"; 
+//Register
+$checkregis = substr($text,0,8);
+if($checkregis == "register" ){
+	include "register.php"; 
    }
-//Test Push MSG
+//Register
+
+/*
 
 //Check DB
   $servername = "203.157.118.122:3306";
@@ -91,7 +93,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
   echo $results;
   }
   
-  
+*/  
   http_response_code(200);
 
 
