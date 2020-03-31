@@ -16,7 +16,7 @@
       $arrayPostData['messages'][0]['text'] = "ลงทะเบียนให้เรียบร้อยแล้วครับ ^ ^";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "1";
-      $arrayPostData['messages'][1]['stickerId'] = "115";
+      $arrayPostData['messages'][1]['stickerId'] = "114";
       pushMsg($arrayHeader,$arrayPostData);
   
    function pushMsg($arrayHeader,$arrayPostData){
