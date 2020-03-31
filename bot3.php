@@ -54,7 +54,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
 	  //$mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
 	    
     $replyText["text"] = "คุณยังไม่มีชื่ออยู่ในระบบครับ กรุณาพิมพ์ชื่อจริง โดยไม่ต้องพิมพ์นามสกุล ส่งมาให้ผมทีครับ ผมจะลงทะเบียนให้ครับ !!";
-	  $replyText["text"] = "กำลังตรวจสอบ $text ให้อยู่นะครับ รอรับข้อความได้เลยครับ";
+	 
 	
   } else {
     while($row = $getUser->fetch_assoc()){
@@ -63,6 +63,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
       $position = $row['position'];
     }
     $replyText["text"] = "สวัสดีคุณ $p_name ตอนนี้ผมยังไม่ค่อยรู้อะไรนอกจากวันลา กรุณาอย่างถามเรื่องอื่นนะครับ ผมตอบไม่ได้ T_T";
+	  $replyText["text"] = "กำลังตรวจสอบวันลาให้คุณ $p_name อยู่นะครับ รอรับข้อความได้เลยครับ";
 
 //Show Detail Flex MSG
     //include "bot5.php";
