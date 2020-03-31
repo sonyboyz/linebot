@@ -9,7 +9,7 @@
   $timestamp = $jsonData["events"][0]["timestamp"];
 
 //Test Push MSG
-if($text == "ขวัญ"){
+if($text == "ทดสอบบอท"){
      //include "bot_push.php"; 
 	include "bot5.php"; 
    }
