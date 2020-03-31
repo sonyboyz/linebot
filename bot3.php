@@ -1,4 +1,5 @@
 <?php
+
   $LINEData = file_get_contents('php://input');
   $jsonData = json_decode($LINEData,true);
 
@@ -8,6 +9,12 @@
   $timestamp = $jsonData["events"][0]["timestamp"];
 
 //test Push MSG
+
+$accessToken = "b9294d4c452cc656fcd8e1d80086c11b";
+$arrayHeader = array();
+   $arrayHeader[] = "Content-Type: application/json";
+   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+
 if($text == "ขวัญ"){
       $arrayPostData['to'] = "U250e4c274a06718a96420fdafdbb9706";
       $arrayPostData['messages'][0]['type'] = "text";
