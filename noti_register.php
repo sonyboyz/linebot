@@ -13,7 +13,7 @@
   
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ลงทะเบียนให้เรียบร้อยแล้วครับ ^ ^";
+      $arrayPostData['messages'][0]['text'] = "ลงทะเบียนให้เรียบร้อยแล้วครับ";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "1";
       $arrayPostData['messages'][1]['stickerId'] = "114";
