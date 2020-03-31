@@ -10,10 +10,11 @@
 
 //test Push MSG
 
-$accessToken = "b9294d4c452cc656fcd8e1d80086c11b";
+$accessToken = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
 $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+
 
 if($text == "ขวัญ"){
       $arrayPostData['to'] = "U250e4c274a06718a96420fdafdbb9706";
