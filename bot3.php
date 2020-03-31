@@ -17,7 +17,7 @@ $arrayHeader = array();
 
 
 if($text == "ขวัญ"){
-      $arrayPostData['to'] = "U250e4c274a06718a96420fdafdbb9706";
+      $arrayPostData['to'] = $userID;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา คุณขวัญ";
       $arrayPostData['messages'][1]['type'] = "sticker";
@@ -39,7 +39,7 @@ if($text == "ขวัญ"){
    }
    exit;
    } else if($text == "ขวัญ2"){
-      $arrayPostData['to'] = "U40de59c6aace1e1efd5d04a18ac84e5f";
+      $arrayPostData['to'] = $userID;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา ขวัญญญญ 2";
       $arrayPostData['messages'][1]['type'] = "sticker";
