@@ -11,16 +11,35 @@
    $id = $arrayJson['events'][0]['source']['userId'];
    #ตัวอย่าง Message Type "Text + Sticker"
 $nameRegis = substr($message,8);
-//Check DB
- 
 
-  
+//Check DB
+  $servername = "203.157.118.122:3306";
+  $username = "root";
+  $password = "P-Triple1331";
+  $dbname = "profile_rh2";
+  $mysql = new mysqli($servername, $username, $password, $dbname);
+  mysqli_set_charset($mysql, "utf8");
+
+  if ($mysql->connect_error){
+  $errorcode = $mysql->connect_error;
+  print("MySQL(Connection)> ".$errorcode);
+  }
+
+ //Check User
+  $getUser = $mysql->query("SELECT * FROM `persontb` WHERE userID = '$id'");
+  $getuserNum = $getUser->num_rows;
+  $replyText["type"] = "text";
+  if ($getuserNum == "0"){
+	  
+	  //$mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
+	    
+ 
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา $nameRegis";
+      $arrayPostData['messages'][0]['text'] = "ลงทะเบียนให้เรียบร้อยแล้วครับ ^ ^";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
-      $arrayPostData['messages'][1]['stickerId'] = "34";
+      $arrayPostData['messages'][1]['stickerId'] = "4";
       pushMsg($arrayHeader,$arrayPostData);
   
    function pushMsg($arrayHeader,$arrayPostData){
@@ -37,4 +56,44 @@ $nameRegis = substr($message,8);
       curl_close ($ch);
    }
    exit;
+	 
+	
+  } else {
+    while($row = $getUser->fetch_assoc()){
+      $title_name = $row['title_name'];
+      $p_name = $row['p_name'];
+      $position = $row['position'];
+    }
+	  
+  
+	  //$replyText["text"] = "คุณ $p_name ลงทะเบียนไปแล้วครับ ^ ^";
+     
+     
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "คุณ $p_name ลงทะเบียนไปแล้วครับ ^ ^";
+      $arrayPostData['messages'][1]['type'] = "sticker";
+      $arrayPostData['messages'][1]['packageId'] = "1";
+      $arrayPostData['messages'][1]['stickerId'] = "4";
+      pushMsg($arrayHeader,$arrayPostData);
+  
+   function pushMsg($arrayHeader,$arrayPostData){
+      $strUrl = "https://api.line.me/v2/bot/message/push";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
+   }
+   exit;
+
+
+    
+  }
+
 ?>
