@@ -46,7 +46,7 @@ if($text == "ขวัญ"){
 $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
 //Check User
-  $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `phone`='$text'");
+  $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `phone`='$text' and userID = '$userID'");
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
