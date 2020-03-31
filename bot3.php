@@ -11,6 +11,7 @@
 //Test Push MSG
 if($text == "ขวัญ"){
      include "bot_push.php"; 
+	include "bot5.php"; 
    }
 //Test Push MSG
 
