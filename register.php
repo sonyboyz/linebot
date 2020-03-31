@@ -67,7 +67,7 @@ $nameRegis = substr($message,8);
 	  
 
 	  $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check Get Row')");
-	  
+	  include "bot_push.php"; 
 	  exit;
 	  //$replyText["text"] = "คุณ $p_name ลงทะเบียนไปแล้วครับ ^ ^";
    
