@@ -12,11 +12,9 @@
 if($text == "ขวัญ"){
      include "bot_push.php"; 
    }
-
-  
-
 //Test Push MSG
 
+//Check DB
   $servername = "203.157.118.122:3306";
   $username = "root";
   $password = "P-Triple1331";
@@ -44,13 +42,15 @@ if($text == "ขวัญ"){
     return $result;
   }
 
+//Log
 $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
+//Check User
   $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `phone`='$text'");
   $getuserNum = $getUser->num_rows;
   $replyText["type"] = "text";
   if ($getuserNum == "0"){
-	  $mysql->query("UPDATE `userLine` SET `phone`='$userID' WHERE `phone`='$text'");
+	  $mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
 	    
     $replyText["text"] = "ยังไม่มีชื่ออยู่ในระบบครับ กำลังบันทึกชื่อในระบบให้อยู่ครับ !!";
 	
@@ -61,13 +61,14 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
       $idcard = $row['idcard'];
     }
     $replyText["text"] = "สวัสดีคุณ $p_name ($idcard)";
-    include "bot5.php";
-    //header( "location: bot5.php?cid=$CustomerID" );
-    //print "<META HTTP-EQUIV=Refresh CONTENT=0 URL=bot5.php?cid=$CustomerID>";
-       
+
+//Show Detail Flex MSG
+    //include "bot5.php";
     
   }
 
+
+//Reply MSG
   $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
   $lineData['AccessToken'] = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
 
