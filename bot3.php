@@ -15,8 +15,6 @@ if($checkregis == "register" ){
    }
 //Register
 
-/*
-
 //Check DB
   $servername = "203.157.118.122:3306";
   $username = "root";
@@ -44,6 +42,10 @@ if($checkregis == "register" ){
           curl_close($ch);
     return $result;
   }
+
+
+/*
+
 
 
 
@@ -75,11 +77,6 @@ if($checkregis == "register" ){
 
 
 
-  if ($text == "วันลา"){
-	  
-//Log
-$mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-	  
 //Reply MSG
   $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
   $lineData['AccessToken'] = "TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
@@ -92,8 +89,16 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
   $results = sendMessage($encodeJson,$lineData);
   echo $results;
   }
+	  
+
   
 */  
+
+//Log
+$mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+	  
+
+
   http_response_code(200);
 
 
