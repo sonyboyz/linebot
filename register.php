@@ -31,8 +31,7 @@ $nameRegis = substr($message,8);
   if ($getuserNum == "0"){
 	  
 	  //$mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
-	    $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check no Row')");
- 	
+	   	
 	  
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
@@ -55,6 +54,7 @@ $nameRegis = substr($message,8);
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+	   $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check no Row')");
 	  
 	  exit;
   } else {
@@ -64,7 +64,7 @@ $nameRegis = substr($message,8);
       $position = $row['position'];
     }
 	  
-$mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check Get Row')");
+
 	 
 	  $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
@@ -87,6 +87,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VAL
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+	  $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check Get Row')");
 	  
 	  exit;
 	  //$replyText["text"] = "คุณ $p_name ลงทะเบียนไปแล้วครับ ^ ^";
