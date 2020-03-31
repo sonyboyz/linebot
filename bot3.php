@@ -15,6 +15,12 @@ if($checkregis == "register" ){
    }
 //Register
 
+//checkleave
+if($text == "วันลา" ){
+	include "bot5.php"; 
+   }
+//checkleave
+
 //Check DB
   $servername = "203.157.118.122:3306";
   $username = "root";
