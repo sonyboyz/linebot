@@ -64,7 +64,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
     }
     $replyText["text"] = "สวัสดีคุณ $p_name ตอนนี้ผมยังไม่ค่อยรู้อะไรนอกจากวันลา กรุณาอย่างถามเรื่องอื่นนะครับ ผมตอบไม่ได้ T_T";
 	  $replyText["text"] = "กำลังตรวจสอบวันลาให้คุณ $p_name อยู่นะครับ รอรับข้อความได้เลยครับ ^ ^";
-	  // include "bot_push.php"; 
+	  include "bot_push.php"; 
 
 //Show Detail Flex MSG
     //include "bot5.php";
