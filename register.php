@@ -30,7 +30,7 @@ $nameRegis = substr($message,8);
   $getuserNum = $getUser->num_rows;
   if ($getuserNum == "0"){
 	  
-	  //$mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `phone`='$text'");
+	  $mysql->query("UPDATE `persontb` SET `userID`='$userID' WHERE `p_name` like '%$nameRegis%'");
 	   	
 	   $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`, `detail`) VALUES ('$userID','$text','$timestamp','Check no Row')");
 	  include "noti_register.php"; 
