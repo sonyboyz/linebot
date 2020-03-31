@@ -58,7 +58,7 @@ $mysql->query("INSERT INTO `log`(`id_person`, `Text`, `Timestamp`) VALUES ('$use
     while($row = $getUser->fetch_assoc()){
       $title_name = $row['title_name'];
       $p_name = $row['p_name'];
-      $idcard = $row['idcard'];
+      $position = $row['position'];
     }
     $replyText["text"] = "สวัสดีคุณ $p_name ($position)";
 
