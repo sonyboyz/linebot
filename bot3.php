@@ -17,7 +17,7 @@ if($checkregis == "register" ){
 
 //checkleave
 if($text == "วันลา" ){
-	include "bot5.php"; 
+	include "bot6.php"; 
    }
 //checkleave
 
