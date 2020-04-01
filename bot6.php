@@ -1,7 +1,21 @@
 <?php
 $access_token="TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
+
+
+$LINEData = file_get_contents('php://input');
+  $jsonData = json_decode($LINEData,true);
+
+  $replyToken = $jsonData["events"][0]["replyToken"];
+  $userID = $jsonData["events"][0]["source"]["userId"];
+  $text = $jsonData["events"][0]["message"]["text"];
+  $timestamp = $jsonData["events"][0]["timestamp"];
+
+
+
+
+
 //เรียกใช้งานโดย
-PushMessages("U250e4c274a06718a96420fdafdbb9706","พิมพ์ข้อมูลที่ต้องการ");
+PushMessages($userID,"พิมพ์ข้อมูลที่ต้องการ");
 function PushMessages($userId,$text){
 $access_token = $GLOBALS['access_token'];
 $messages = array('type' => 'text','text' => $text);
