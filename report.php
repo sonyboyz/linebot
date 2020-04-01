@@ -24,7 +24,8 @@ $LINEData = file_get_contents('php://input');
       while($row = $getUser->fetch_assoc()){
       $title_name = $row['title_name'];
       $p_name = $row['p_name'];
-      $idcard = $row['idcard'];
+      $id_person = $row['id_person'];
+        $userID = $row['userID'];
       }
 
         
@@ -155,7 +156,7 @@ $jsonFlex = [
           "action" => [
             "type" => "uri",
             "label" => "ยื่นใบลา",
-            "uri" => "http://203.157.118.122/lcs/addlcs.php?userID=55555"
+            "uri" => "http://203.157.118.122/lcs/addlcs.php?userID=$userID"
           ],
           "color" => "#00BB51",
           "style" => "primary"
