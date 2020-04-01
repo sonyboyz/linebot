@@ -139,13 +139,9 @@ $jsonFlex = [
 ];
 
 
-$data = [
-        'messages' => [$jsonFlex]
-        ];
+        print_r($jsonFlex);
 
-        print_r($data);
-
-        $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $post_body = json_encode($jsonFlex, JSON_UNESCAPED_UNICODE);
 
 
 //Flex
