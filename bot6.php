@@ -7,7 +7,7 @@ $LINEData = file_get_contents('php://input');
 
   $replyToken = $jsonData["events"][0]["replyToken"];
   $userID = $jsonData["events"][0]["source"]["userId"];
- // $text = $jsonData["events"][0]["message"]["text"];
+  $text = $jsonData["events"][0]["message"]["text"];
   $timestamp = $jsonData["events"][0]["timestamp"];
 
 //Flex
@@ -141,14 +141,14 @@ $jsonFlex = [
 
      //   print_r($jsonFlex);
 
-     //   $post_body = json_encode($jsonFlex, JSON_UNESCAPED_UNICODE);
+       $post_body = json_encode($jsonFlex, JSON_UNESCAPED_UNICODE);
 
 
 //Flex
 
 
 //เรียกใช้งานโดย
-PushMessages($userID,$jsonFlex);
+PushMessages($userID,$post_body);
 function PushMessages($userId,$text){
 $access_token = $GLOBALS['access_token'];
 $messages = array('type' => 'text','text' => $text);
