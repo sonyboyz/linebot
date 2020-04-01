@@ -1,7 +1,4 @@
 <?php
-$access_token="TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU=";
-
-
 $LINEData = file_get_contents('php://input');
   $jsonData = json_decode($LINEData,true);
 
@@ -10,7 +7,37 @@ $LINEData = file_get_contents('php://input');
   $text = $jsonData["events"][0]["message"]["text"];
   $timestamp = $jsonData["events"][0]["timestamp"];
 
-//Flex
+  $servername = "203.157.118.122:3306";
+  $username = "root";
+  $password = "P-Triple1331";
+  $dbname = "profile_rh2";
+  $mysql = new mysqli($servername, $username, $password, $dbname);
+  mysqli_set_charset($mysql, "utf8");
+
+  if ($mysql->connect_error){
+  $errorcode = $mysql->connect_error;
+  print("MySQL(Connection)> ".$errorcode);
+  }
+
+ $getUser = $mysql->query("SELECT * FROM `persontb` WHERE `userID`='$userID'");
+  $getuserNum = $getUser->num_rows;
+      while($row = $getUser->fetch_assoc()){
+      $title_name = $row['title_name'];
+      $p_name = $row['p_name'];
+      $idcard = $row['idcard'];
+      }
+
+        
+$API_URL = 'https://api.line.me/v2/bot/message';
+$ACCESS_TOKEN = 'TJIV2HgTqUm5oOrmeJQ9mnczGRvIQNVNTJu+VcqJzZcu3m0IyxOvuS7XhCZ3GzqHRcMapLuJnOdLjg0NQE5vgoEXZCNh4aaDN7okrye2ekQnzegrHbAcy/cHPpIIjA21Q0Maw7IvvvUtLFK2EuqobgdB04t89/1O/w1cDnyilFU='; 
+$channelSecret = 'b9294d4c452cc656fcd8e1d80086c11b';
+
+
+$POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
+
+$request = file_get_contents('php://input');   // Get request content
+$request_array = json_decode($request, true);   // Decode JSON to Array
+
 $jsonFlex = [
   "type" => "flex",
   "altText" => "รายงานวันลา",
@@ -139,32 +166,47 @@ $jsonFlex = [
 ];
 
 
-     //   print_r($jsonFlex);
 
-       $post_body = json_encode($jsonFlex, JSON_UNESCAPED_UNICODE);
+if ( sizeof($request_array['events']) > 0 ) {
+    foreach ($request_array['events'] as $event) {
+        error_log(json_encode($event));
+        $reply_message = '';
+        $reply_token = $event['replyToken'];
 
 
-//Flex
+        $data = [
+            'to' => $userID,
+            'messages' => [$jsonFlex]
+        ];
 
+        print_r($data);
 
-//เรียกใช้งานโดย
-PushMessages($userID,$post_body);
-function PushMessages($userId,$text){
-$access_token = $GLOBALS['access_token'];
-$messages = array('type' => 'text','text' => $text);
-// Make a POST Request to Messaging API to reply to sender
-$url = 'https://api.line.me/v2/bot/message/push';
-$data = array('to' => $userId,'messages' => array($messages));
-$post = json_encode($data);
-$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
-return $result . "\r\n";
+        $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+        $send_result = send_reply_message($API_URL.'/push', $POST_HEADER, $post_body);
+
+        echo "Result: ".$send_result."\r\n";
+        
+    }
 }
+
+echo "OK";
+
+
+
+
+function send_reply_message($url, $post_header, $post_body)
+{
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    return $result;
+}
+
 ?>
