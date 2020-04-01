@@ -155,7 +155,7 @@ $jsonFlex = [
           "action" => [
             "type" => "uri",
             "label" => "ยื่นใบลา",
-            "uri" => "http://www.rh2.go.th"
+            "uri" => "http://203.157.118.122/lcs/addlcs.php?userID=55555"
           ],
           "color" => "#00BB51",
           "style" => "primary"
