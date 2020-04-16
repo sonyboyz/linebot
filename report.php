@@ -28,7 +28,7 @@ $LINEData = file_get_contents('php://input');
         $userID = $row['userID'];
       }
 	  
-	  $getLeave = $mysql->query("SELECT * FROM `leave_main` WHERE `id_person`='$id_person'");
+	  $getLeave = $mysql->query("SELECT * FROM `leave_main` WHERE `id_person`='$id_person' and `years`='2563'");
   $getLeaveNum = $getLeave->num_rows;
       while($rowLeave = $getLeave->fetch_assoc()){
       $leave_sick = $rowLeave['leave_sick'];
