@@ -127,7 +127,8 @@ $jsonFlex = [
             [
               "type" => "text",
               "text" => "คงเหลือ $leave_vacation_balance วัน",
-              "align" => "end"
+              "align" => "end",
+			  "color" => "#000000"
             ]
           ]
         ],
@@ -143,7 +144,8 @@ $jsonFlex = [
             [
               "type" => "text",
               "text" => "คงเหลือ $leave_work_balance วัน",
-              "align" => "end"
+              "align" => "end",
+			  "color" => "#000000"
             ]
           ]
         ],
@@ -159,7 +161,8 @@ $jsonFlex = [
             [
               "type" => "text",
               "text" => "คงเหลือ $leave_other_balance วัน",
-              "align" => "end"
+              "align" => "end",
+			  "color" => "#000000"
             ]
           ]
         ]
@@ -170,6 +173,16 @@ $jsonFlex = [
       "layout" => "horizontal",
       "contents" => [
         [
+          "type" => "button",
+          "action" => [
+            "type" => "uri",
+            "label" => "ดูรายละเอียด",
+            "uri" => "http://203.157.118.122/lcs/index.php?userID=$userID"
+          ],
+          "color" => "#4144E1",
+          "style" => "primary"
+        ],
+		[
           "type" => "button",
           "action" => [
             "type" => "uri",
