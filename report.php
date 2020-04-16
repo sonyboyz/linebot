@@ -27,6 +27,24 @@ $LINEData = file_get_contents('php://input');
       $id_person = $row['id_person'];
         $userID = $row['userID'];
       }
+	  
+	  $getLeave = $mysql->query("SELECT * FROM `leave_main` WHERE `id_person`='$id_person'");
+  $getLeaveNum = $getLeave->num_rows;
+      while($rowLeave = $getLeave->fetch_assoc()){
+      $leave_sick = $rowLeave['leave_sick'];
+      $leave_sick_use = $rowLeave['leave_sick_use'];
+      $leave_vacation = $rowLeave['leave_vacation'];
+      $leave_vacation_use = $rowLeave['leave_vacation_use'];
+	  $leave_work = $rowLeave['leave_work'];
+	  $leave_work_use = $rowLeave['leave_work_use'];
+	  $leave_other = $rowLeave['leave_other'];
+	  $leave_other_use = $rowLeave['leave_other_use'];
+      }
+	  
+	  $leave_sick_balance = $leave_sick - $leave_sick_use;
+	  $leave_work_balance = $leave_work - $leave_work_use;
+	  $leave_vacation_balance = $leave_vacation - $leave_vacation_use;
+	  $leave_other_balance = $leave_other - $leave_other_use;
 
         
 $API_URL = 'https://api.line.me/v2/bot/message';
@@ -91,7 +109,7 @@ $jsonFlex = [
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ  15  วัน",
+              "text" => "คงเหลือ  $leave_sick_balance  วัน",
               "align" => "end",
               "color" => "#000000"
             ]
@@ -108,7 +126,7 @@ $jsonFlex = [
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ 12 วัน",
+              "text" => "คงเหลือ $leave_vacation_balance วัน",
               "align" => "end"
             ]
           ]
@@ -124,7 +142,7 @@ $jsonFlex = [
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ 5 วัน",
+              "text" => "คงเหลือ $leave_work_balance วัน",
               "align" => "end"
             ]
           ]
@@ -140,7 +158,7 @@ $jsonFlex = [
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ 20 วัน",
+              "text" => "คงเหลือ $leave_other_balance วัน",
               "align" => "end"
             ]
           ]
