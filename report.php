@@ -40,7 +40,12 @@ $LINEData = file_get_contents('php://input');
 	  $leave_other = $rowLeave['leave_other'];
 	  $leave_other_use = $rowLeave['leave_other_use'];
       }
-	  
+	   if($title_name == 'นาย'){
+	 $lOther = "ลาอุปสมบท";
+ } else {
+	  $lOther = "ลาคลอด";
+ }
+
 	  $leave_sick_balance = $leave_sick - $leave_sick_use;
 	  $leave_work_balance = $leave_work - $leave_work_use;
 	  $leave_vacation_balance = $leave_vacation - $leave_vacation_use;
@@ -155,7 +160,7 @@ $jsonFlex = [
           "contents" => [
             [
               "type" => "text",
-              "text" => "ลาคลอด/อุปสมบท",
+              "text" => "$lOther",
               "color" => "#1F262C"
             ],
             [
