@@ -41,9 +41,9 @@ $LINEData = file_get_contents('php://input');
 	  $leave_other_use = $rowLeave['leave_other_use'];
       }
 	   if($title_name == 'นาย'){
-	 $lOther = "ลาอุปสมบท";
+	 $lOther = "อื่น ๆ";
  } else {
-	  $lOther = "ลาคลอด";
+	  $lOther = "อื่น ๆ";
  }
 
 	  $leave_sick_balance = $leave_sick - $leave_sick_use;
@@ -108,15 +108,22 @@ $jsonFlex = [
           "contents" => [
             [
               "type" => "text",
-              "text" => "ลาป่วย",
-              "weight" => "regular",
+              "text" => "ลาพักผ่อน",
+              "weight" => "bold",
               "color" => "#0D00B9"
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ  $leave_sick_balance  วัน",
+              "text" => "ใช้ไป",
               "align" => "end",
-              "color" => "#000000"
+			  "weight" => "bold"
+            ]
+			,
+            [
+              "type" => "text",
+              "text" => "$leave_vacation_use  วัน",
+              "align" => "end",
+			  "weight" => "bold"
             ]
           ]
         ],
@@ -126,14 +133,21 @@ $jsonFlex = [
           "contents" => [
             [
               "type" => "text",
-              "text" => "ลาพักผ่อน",
+              "text" => "ลาป่วย",
               "color" => "#BB0D0D"
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ $leave_vacation_balance วัน",
+              "text" => "ใช้ไป",
               "align" => "end",
-			  "color" => "#000000"
+			  "weight" => "bold"             
+            ]
+			,
+            [
+              "type" => "text",
+              "text" => "$leave_sick_use  วัน",
+              "align" => "end",
+			  "weight" => "bold"
             ]
           ]
         ],
@@ -148,26 +162,16 @@ $jsonFlex = [
             ],
             [
               "type" => "text",
-              "text" => "คงเหลือ $leave_work_balance วัน",
+              "text" => "ใช้ไป",
               "align" => "end",
-			  "color" => "#000000"
+			  "weight" => "bold"             
             ]
-          ]
-        ],
-        [
-          "type" => "box",
-          "layout" => "baseline",
-          "contents" => [
+			,
             [
               "type" => "text",
-              "text" => "$lOther",
-              "color" => "#1F262C"
-            ],
-            [
-              "type" => "text",
-              "text" => "คงเหลือ $leave_other_balance วัน",
+              "text" => "$leave_work_use  วัน",
               "align" => "end",
-			  "color" => "#000000"
+			  "weight" => "bold"
             ]
           ]
         ]
