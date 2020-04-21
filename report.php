@@ -134,6 +134,7 @@ $jsonFlex = [
             [
               "type" => "text",
               "text" => "ลาป่วย",
+			  "weight" => "bold",
               "color" => "#BB0D0D"
             ],
             [
@@ -158,6 +159,7 @@ $jsonFlex = [
             [
               "type" => "text",
               "text" => "ลากิจ",
+			  "weight" => "bold",
               "color" => "#11AA08"
             ],
             [
